@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./style.scss";
-import { usePriceAndContentHook } from "../priceAndContentHook";
 const Header = () => {
-  const { searchTerm, setSearchTerm } = usePriceAndContentHook();
+  const [searchTerm, setSearchTerm] = useState("");
   const handleChange = e => {
     setSearchTerm(e.target.value);
   };

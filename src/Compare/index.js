@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
 import "./style.scss";
 import { response } from "../mockResponse";
@@ -177,18 +177,20 @@ const Compare = () => {
   const { series, options } = response[activeTabIndex];
   const query = window.location.search.split("?term=")[1];
   const [data, setData] = useState(initialData);
-  const fetchData = async () => {
-    let { data, error } = await axios.get(
-      `http://localhost:8080/khoj/?term=${query}`
-    );
-    if (error) {
-      setData({});
-    } else {
-      setData(data.data);
-    }
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      let { data, error } = await axios.get(
+        `http://10.147.3.215:8080/khoj/?term=${query}`
+      );
+      if (error) {
+        setData({});
+      } else {
+        setData(data.data);
+      }
+    };
+    fetchData(query);
+  }, [query]);
 
-  fetchData(query);
   const chartData = getFormattedResponseForChart(data);
 
   return (
