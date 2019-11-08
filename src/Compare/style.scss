@@ -1,17 +1,18 @@
-.main{
+.compare{
     min-height:80vh;
     display: flex;
     flex: 1;
     height: 100%;
 }
-.main .container {
+.compare .container {
     width: 80%;
     display: flex;
-    min-height:95vh;
+    height:100vh;
     padding:5px;
+    flex-direction: column;
 }
 
-.main .tab-container {
+.compare .tab-container {
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -44,6 +45,7 @@
 }
 .difference-container{
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     border-radius: 4px;
@@ -53,6 +55,20 @@
 }
 .diff-desc{
     font-size: 20px;
+}
+.comparison-title{
+    height: 100px;
+    background-color: white;
+    padding: 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+}
+.description-and-trend-wrapper{
+    display: flex;
 }
 .description-and-trend{
     width:50%;
@@ -64,5 +80,8 @@
     border-radius: 4px;
     background-color: white;
     box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+}
+.trend-description{
+    text-align: center;
 }
 

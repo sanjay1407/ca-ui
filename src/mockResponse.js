@@ -1,7 +1,3 @@
-import React, { useState } from "react";
-import Chart from "react-apexcharts";
-import { useHistory } from "react-router-dom";
-import "./style.scss";
 const getOptions = ({ titleOnX, titleOnY }) => {
   return {
     dataLabels: {
@@ -76,37 +72,8 @@ const getOptions = ({ titleOnX, titleOnY }) => {
     }
   };
 };
-const DifferenceContainer = ({ options, description }) => (
-  <div className="difference-container">
-    <Chart
-      options={options}
-      series={options.series}
-      height="200"
-      type="radialBar"
-    />
-    <div className="diff-desc">{description}</div>
-  </div>
-);
 
-const TabList = ({ activeTab, setActiveTab, values }) => {
-  return values.map((tab, index) => {
-    const onTabClick = () => {
-      setActiveTab(index);
-    };
-    return (
-      <div
-        className={`tab ${index === activeTab ? "active" : ""}`}
-        key={tab}
-        onClick={onTabClick}
-        ss
-      >
-        {tab}
-      </div>
-    );
-  });
-};
-
-const response = [
+export const response = [
   {
     brandId: "easy",
     name: "Easy.cl",
@@ -159,63 +126,3 @@ const response = [
     options: getOptions({ titleOnX: "Sodimac.cl", titleOnY: "Paris.cl" })
   }
 ];
-const brands = response.map(item => item.name);
-
-const Main = () => {
-  const [activeTabIndex, setActiveTabIndex] = useState(0);
-  let history = useHistory();
-  const {
-    productsWithHigherPrice,
-    productsWithMoreContent,
-    name,
-    series,
-    options
-  } = response[activeTabIndex];
-
-  const chartOptions = {
-    price: {
-      series: [productsWithHigherPrice],
-      labels: ["Price"]
-    },
-    content: {
-      series: [productsWithMoreContent],
-      labels: ["Content"]
-    }
-  };
-  const handleClick = () => {
-    history.push("/products");
-  };
-  return (
-    <div className="main">
-      <div className="tab-container">
-        <TabList
-          activeTab={activeTabIndex}
-          setActiveTab={setActiveTabIndex}
-          values={brands}
-        />
-      </div>
-      <div className="container">
-        <div className="description-and-trend" onClick={handleClick}>
-          <DifferenceContainer
-            options={chartOptions.price}
-            description={`There are ${productsWithHigherPrice}% Products in ${name} with higher price`}
-          />
-          <div className="trend">
-            <Chart options={options} series={series} type="line" height="300" />
-          </div>
-        </div>
-        <div className="description-and-trend" onClick={handleClick}>
-          <DifferenceContainer
-            options={chartOptions.content}
-            description={`There are ${productsWithMoreContent}% Products in ${name} with better content score`}
-          />
-          <div className="trend">
-            <Chart options={options} series={series} type="line" height="300" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Main;
