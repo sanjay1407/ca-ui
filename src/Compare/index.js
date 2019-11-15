@@ -182,7 +182,7 @@ const Compare = () => {
     setLoading(true);
     const fetchData = async () => {
       let { data, error } = await axios.get(
-        `http://localhost:8080/khoj/?term=${query}`
+        `http://ca-api-service.herokuapp.com/khoj?term=${query}`
       );
       if (error) {
         setData({});
