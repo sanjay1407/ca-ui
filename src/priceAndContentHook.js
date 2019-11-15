@@ -6,10 +6,12 @@ export const usePriceAndContentHook = (searchKey = "") => {
 
   useEffect(() => {
     if (searchTerm.length && searchTerm.length > 3) {
-      axios.get("http://localhost:8080/khoj/").then(data => {
-        setData({ value: data.data });
-        console.log("data.data", data.data);
-      });
+      axios
+        .get(`https://ca-api-service.herokuapp.com/khoj?term=${searchTerm}`)
+        .then(data => {
+          setData({ value: data.data });
+          console.log("data.data", data.data);
+        });
     } else {
       setData({});
     }
