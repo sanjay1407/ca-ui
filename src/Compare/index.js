@@ -6,19 +6,19 @@ import axios from "axios";
 const initialData = {
   easy: {
     id: 71415,
-    title: "MULTIPROPOSITO DREMEL 3000 1/26 ACC     ",
-    inetPrice: 49990,
-    specScore: 65,
-    imageScore: 60,
-    wordScore: 60
+    title: "",
+    inetPrice: 0,
+    specScore: 0,
+    imageScore: 0,
+    wordScore: 0
   },
   sodimac: {
     id: 123456,
-    title: "Prod2",
-    inetPrice: 46908,
-    specScore: 60,
-    imageScore: 40,
-    wordScore: 80
+    title: "",
+    inetPrice: 1,
+    specScore: 0,
+    imageScore: 0,
+    wordScore: 0
   }
 };
 
@@ -174,19 +174,22 @@ const brands = response.map(item => item.name);
 
 const Compare = () => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const [loading, setLoading] =  useState(false);
   const { series, options } = response[activeTabIndex];
   const query = window.location.search.split("?term=")[1];
   const [data, setData] = useState(initialData);
   useEffect(() => {
+    setLoading(true);
     const fetchData = async () => {
       let { data, error } = await axios.get(
-        `http://10.147.3.215:8080/khoj/?term=${query}`
+        `http://localhost:8080/khoj/?term=${query}`
       );
       if (error) {
         setData({});
-      } else {
+      } else {   
         setData(data.data);
       }
+       setLoading(false);
     };
     fetchData(query);
   }, [query]);
@@ -202,7 +205,8 @@ const Compare = () => {
           values={brands}
         />
       </div>
-      <div className="container">
+      <div className={`container ${loading? 'loading' : ''}`}>
+        <div className="loader"></div>
         <div className="comparison-title">
           {`Price and Content comparison for :`}
           <b>{`${data.easy.title}`}</b>

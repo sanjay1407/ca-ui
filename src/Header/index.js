@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <div className="header" onClick={goToHome}>
-      <div className="logo">FaCIS</div>
+      <div className="logo"></div>
 
       <div className="input-box-wrapper">
         <input

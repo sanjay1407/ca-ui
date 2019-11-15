@@ -1,87 +1,106 @@
-.compare{
-    min-height:80vh;
-    display: flex;
-    flex: 1;
-    height: 100%;
-}
-.compare .container {
-    width: 80%;
-    display: flex;
-    height:100vh;
-    padding:5px;
-    flex-direction: column;
+.compare {
+  min-height: 80vh;
+  display: flex;
+  flex: 1;
+  height: 100%;
 }
 
-.compare .tab-container {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    flex:1;
-    background-color: black;
-    padding: 0 10px;
-    border-color: #eeeeee;
-    box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+.compare .container {
+  width: 80%;
+  display: flex;
+  height: 100vh;
+  padding: 5px;
+  position: relative;
+  flex-direction: column;
 }
-.tab{
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #546e7a;
-    font-size:20px;
-    margin:3px 0;
-    &:hover{
-        box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
-        color: #0f91e4;
-        font-weight: 500;
-        cursor: pointer;
-    }
-    &.active{
+.loader {
+    display: none;
+}
+.loading .loader {
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.94);
+  background-image: url("./loader.gif");
+}
+.compare .tab-container {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: black;
+  padding: 0 10px;
+  border-color: #eeeeee;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+    0 1px 3px 0 rgba(63, 63, 68, 0.15);
+}
+.tab {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #546e7a;
+  font-size: 20px;
+  margin: 3px 0;
+  &:hover {
+    box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+      0 1px 3px 0 rgba(63, 63, 68, 0.15);
     color: #0f91e4;
     font-weight: 500;
-    box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
-    }
- 
+    cursor: pointer;
+  }
+  &.active {
+    color: #0f91e4;
+    font-weight: 500;
+    box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+      0 1px 3px 0 rgba(63, 63, 68, 0.15);
+  }
 }
-.difference-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    border-radius: 4px;
-    background-color: white;
-     padding:10px 15px;
-    box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+.difference-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 4px;
+  background-color: white;
+  padding: 10px 15px;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+    0 1px 3px 0 rgba(63, 63, 68, 0.15);
 }
-.diff-desc{
-    font-size: 20px;
+.diff-desc {
+  font-size: 20px;
 }
-.comparison-title{
-    height: 100px;
-    background-color: white;
-    padding: 10px;
-    margin-left: 5px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+.comparison-title {
+  height: 100px;
+  background-color: white;
+  padding: 10px;
+  margin-left: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+    0 1px 3px 0 rgba(63, 63, 68, 0.15);
 }
-.description-and-trend-wrapper{
-    display: flex;
+.description-and-trend-wrapper {
+  display: flex;
 }
-.description-and-trend{
-    width:50%;
-    padding: 5px;
+.description-and-trend {
+  width: 50%;
+  padding: 5px;
 }
-.trend{
-     padding:10px 15px;
-    margin-top:10px;
-    border-radius: 4px;
-    background-color: white;
-    box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+.trend {
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 0 0 1px rgba(63, 63, 68, 0.05),
+    0 1px 3px 0 rgba(63, 63, 68, 0.15);
 }
-.trend-description{
-    text-align: center;
+.trend-description {
+  text-align: center;
 }
-

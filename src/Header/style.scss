@@ -1,41 +1,43 @@
-.header{
-    position: relative;
-    .logo{
-    height: 50px;
-    width: 140px;
-    font-size: 46px;
+.header {
+  position: relative;
+  .logo {
+    height: 100px;
+    width: 256px;
     position: absolute;
     left: 60px;
     cursor: pointer;
-    }
-    height: 100px;
-    border: 1px solid;
-    background-color: #0f91e4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .input-box-wrapper{
-        position: relative;
-    }
-    .search-icon{
-      color: black;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url("./logo1.png");
+  }
+  height: 100px;
+  border: 1px solid;
+  background-color: #0f91e4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .input-box-wrapper {
+    position: relative;
+  }
+  .search-icon {
+    color: black;
     position: absolute;
     top: 5px;
     font-size: 40px;
     right: 10px;
-    }
+  }
 
-    input{
+  input {
     width: 400px;
     height: 40px;
     border-radius: 9px;
     border: none;
     font-size: 22px;
     padding: 5px;
-    padding-left:20px;
-    &:focus{
-        outline: none;
-        outline-color: transparent;
+    padding-left: 20px;
+    &:focus {
+      outline: none;
+      outline-color: transparent;
     }
-    }
+  }
 }
